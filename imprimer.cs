@@ -56,5 +56,12 @@ namespace facturation
         {
 
         }
+
+        private bool mouseDown = false;
+        private Point lastLocation;
+        private void panel1_MouseUp(object sender, MouseEventArgs e) { mouseDown = false; this.Cursor = Cursors.Default; }
+        private void panel1_MouseDown(object sender, MouseEventArgs e) { mouseDown = true; lastLocation = e.Location; this.Cursor = Cursors.Hand; }
+        private void panel1_MouseMove(object sender, MouseEventArgs e) { if (mouseDown) { int x = (this.Location.X - lastLocation.X) + e.X; int y = (this.Location.Y - lastLocation.Y) + e.Y; this.Location = new Point(x, y); } }
+        
     }
 }

@@ -30,7 +30,20 @@ namespace facturation
                 string[] Words = new string[2];
                 Words = pValue.ToString().Split(',');
                 WordsSpliLeft = int.Parse(Words[0]);
-                WordsSplitRight = int.Parse(Words[1]);
+
+                if (Words[1].ToString().Length > 2)
+                {
+                    WordsSplitRight =   int.Parse(Words[1].ToString().Substring(0, 2));
+
+                     
+                    
+                }
+                else
+                {
+
+                    WordsSplitRight = int.Parse(Words[1]);
+                }
+                
 
                 if (pLanguage == Language.French)
                 {
@@ -42,8 +55,7 @@ namespace facturation
                 }
 
 
-
-
+             
 
                 if (WordsSplitRight < 0)
                     throw new NotSupportedException("negative numbers not supported");
@@ -54,20 +66,20 @@ namespace facturation
 
                 else if (WordsSplitRight < 10)
                 {
-                    RightW = ConvertDigitToWords(int.Parse(WordsSplitRight.ToString()), pLanguage);
+                    RightW = ConvertDigitToWords( WordsSplitRight , pLanguage);
                 }
 
 
                 else if (WordsSplitRight < 20)
-                    RightW = ConvertTeensToWords(int.Parse(WordsSplitRight.ToString()), pLanguage);
+                    RightW = ConvertTeensToWords(WordsSplitRight, pLanguage);
                 else if (WordsSplitRight < 100)
-                    RightW = ConvertHighTensToWords(int.Parse(WordsSplitRight.ToString()), pLanguage);
+                    RightW = ConvertHighTensToWords(WordsSplitRight, pLanguage);
                 else if (WordsSplitRight < 1000)
-                    RightW = ConvertBigNumberToWords(int.Parse(WordsSplitRight.ToString()), 100, "hundred", pLanguage);
+                    RightW = ConvertBigNumberToWords(WordsSplitRight, 100, "hundred", pLanguage);
                 else if (WordsSplitRight < 1000000)
-                    RightW = ConvertBigNumberToWords(int.Parse(WordsSplitRight.ToString()), 1000, "thousand", pLanguage);
+                    RightW = ConvertBigNumberToWords(WordsSplitRight, 1000, "thousand", pLanguage);
                 else if (WordsSplitRight < 1000000000)
-                    RightW = ConvertBigNumberToWords(int.Parse(WordsSplitRight.ToString()), 1000000, "million", pLanguage);
+                    RightW = ConvertBigNumberToWords(WordsSplitRight, 1000000, "million", pLanguage);
                 else
                     throw new NotSupportedException("Number is too large!!!");
 
@@ -92,20 +104,20 @@ namespace facturation
 
                 else if (pValue < 10)
                 {
-                    LeftW = ConvertDigitToWords(int.Parse(WordsSplitRight.ToString()), pLanguage);
+                    LeftW = ConvertDigitToWords(int.Parse(WordsSpliLeft.ToString()), pLanguage);
                 }
 
 
                 else if (WordsSpliLeft < 20)
-                    LeftW = ConvertTeensToWords(int.Parse(WordsSpliLeft.ToString()), pLanguage);
+                    LeftW = ConvertTeensToWords(WordsSpliLeft, pLanguage);
                 else if (WordsSpliLeft < 100)
-                    LeftW = ConvertHighTensToWords(int.Parse(WordsSpliLeft.ToString()), pLanguage);
+                    LeftW = ConvertHighTensToWords(WordsSpliLeft, pLanguage);
                 else if (WordsSpliLeft < 1000)
-                    LeftW = ConvertBigNumberToWords(int.Parse(WordsSpliLeft.ToString()), 100, "hundred", pLanguage);
+                    LeftW = ConvertBigNumberToWords(WordsSpliLeft, 100, "hundred", pLanguage);
                 else if (WordsSpliLeft < 1000000)
-                    LeftW = ConvertBigNumberToWords(int.Parse(WordsSpliLeft.ToString()), 1000, "thousand", pLanguage);
+                    LeftW = ConvertBigNumberToWords(WordsSpliLeft, 1000, "thousand", pLanguage);
                 else if (WordsSpliLeft < 1000000000)
-                    LeftW = ConvertBigNumberToWords(int.Parse(WordsSpliLeft.ToString()), 1000000, "million", pLanguage);
+                    LeftW = ConvertBigNumberToWords(WordsSpliLeft, 1000000, "million", pLanguage);
                 else
                     throw new NotSupportedException("Number is too large!!!");
 

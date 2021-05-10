@@ -3,8 +3,11 @@ using System.Windows.Forms;
 
 namespace facturation
 {
-     public  class placeholder
+
+   
+    public  class placeholder
     {
+ 
 
         public void enter(Control c, string text, string foreColor = "black", string backColor = "white")
         {
@@ -15,7 +18,7 @@ namespace facturation
             //--
             if (foreColor.ToLower() == "black")
             {
-                c.ForeColor = Color.Black;
+                c.ForeColor = Color.FromArgb(0, 0, 64);  
             }
             else
                 c.ForeColor = Color.White;
@@ -25,7 +28,7 @@ namespace facturation
                 c.BackColor = Color.White;
             }
             else
-                c.BackColor = Color.Black;
+                c.BackColor = Color.FromArgb(0, 0, 64);
 
 
 
@@ -43,11 +46,11 @@ namespace facturation
                 c.ForeColor = Color.White;
             }
             else
-                c.ForeColor = Color.Black;
+                c.ForeColor = Color.FromArgb(0, 0, 64);
             //--
             if (backColor.ToLower() == "black")
             {
-                c.BackColor = Color.Black;
+                c.BackColor = Color.FromArgb(0, 0, 64);
             }
             else
                 c.BackColor = Color.White;

@@ -14,7 +14,22 @@ namespace facturation
         {
 
         }
+        public void comboREF(ComboBox coboRef)
+        {
+            OpenCnx();
 
+            cmd = new SqlCommand("select  Reference from factureDevis  ", cn);
+            dr = cmd.ExecuteReader();
+
+            coboRef.Items.Clear();
+            while (dr.Read())
+            {
+                coboRef.Items.Add(dr[0].ToString());
+                
+
+            }
+            CloseIfOpen();
+        }
       
       
         bool init = true;
@@ -171,26 +186,30 @@ namespace facturation
         public void SupprimerFD(int iDFD)
         {
            
-            int idT =  GetIdTotaleFromDetail(GetIdDetailFromFD(iDFD));
+           
 
 
             OpenCnx();
 
+             
+                cmd = new SqlCommand("delete  from detail  where IDF_fk =@IDF_fk", cn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IDF_fk", iDFD);
+                cmd.ExecuteNonQuery();
 
-            cmd = new SqlCommand("delete * from totale  where idT =@idT", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@idT", idT);
-            cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("delete  from totale  where IDF_fk =@IDF_fk", cn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IDF_fk", iDFD);
+                cmd.ExecuteNonQuery();
 
-            cmd = new SqlCommand("delete * from detail  where idT =@idT", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@idT", idT);
-            cmd.ExecuteNonQuery();
+          
+            
+            
 
-            cmd = new SqlCommand("delete * from factureDevis  where idF =@idF ", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@idF", iDFD);
-            cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("delete  from factureDevis  where idF =@idF ", cn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idF", iDFD);
+                cmd.ExecuteNonQuery();
 
  
             CloseIfOpen();
@@ -200,47 +219,28 @@ namespace facturation
         }
 
 
-        public int GetIdTotaleFromDetail(int idDetail)
-        {
-                 idDetail = -1;
-                 OpenCnx();  
-                 cmd = new SqlCommand("select idT from detail", cn);
-                 idDetail = (int)cmd.ExecuteScalar();
-                 CloseIfOpen();
-                 return idDetail;
-        }
+   
 
-        public int GetIdDetailFromFD(int idFD)
-        {
-            idFD = -1;
-            OpenCnx();
-            cmd = new SqlCommand("select idT from detail", cn);
-            idFD = (int)cmd.ExecuteScalar();
-            CloseIfOpen();
-            return idFD;
-        }
-
- 
+        
 
 
 
-        public void ModiffierFD(int idDF ,  string Type, DateTime Date_facture, string factureDestinateur, string ICE_Destinateur)
+
+    public void ModiffierFD(int idDF ,  string Type, DateTime Date_facture, string factureDestinateur, string ICE_Destinateur)
         {
             OpenCnx();
-            cmd = new SqlCommand("update factureDevis set  Type=@Type,Date_facture=@Date_facture,Destinateur=@Destinateur,ICE_Destinateur=@ICE_Destinateur  Where @idDF=idDF  ", cn);
+
+            cmd = new SqlCommand("update factureDevis set  Type=@Type,Date_facture=@Date_facture,Destinateur=@Destinateur,ICE_Destinateur=@ICE_Destinateur  Where idF=@idDF  ", cn);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@idDF", idDF);
- 
             cmd.Parameters.AddWithValue("@Type", Type);
             cmd.Parameters.AddWithValue("@Date_facture", Date_facture);
-            cmd.Parameters.AddWithValue("@factureDestinateur", factureDestinateur);
+            cmd.Parameters.AddWithValue("@Destinateur", factureDestinateur);
             cmd.Parameters.AddWithValue("@ICE_Destinateur", ICE_Destinateur);
 
             cmd.ExecuteNonQuery();
             CloseIfOpen();
 
-
-             
         }
 
         public void RechercherFD(string Reference, DataGridView dataGridViewFD)
@@ -257,7 +257,6 @@ namespace facturation
             while (dr.Read())
             {
                 dataGridViewFD.Rows.Add(dr[0], dr[2], dr[1], dr[3], dr[4], dr[6]);
-
             }
             CloseIfOpen();
         }
@@ -267,6 +266,7 @@ namespace facturation
 
         public void AfficherDetail(DataGridView dataGridViewDetail, int IDF)
         {
+          
             OpenCnx();
             cmd = new SqlCommand("select* from detail where IDF_fk = @IDF_fk", cn);
             cmd.Parameters.Clear(); 
@@ -277,8 +277,8 @@ namespace facturation
             dataGridViewDetail.Rows.Clear();
             while (dr.Read())
             {
-                //dr[5], dr[6]
-                dataGridViewDetail.Rows.Add(dr[0], dr[1], dr[4], dr[2], dr[3]);
+              
+                dataGridViewDetail.Rows.Add(dr[0], dr[6], dr[5], dr[1], dr[4], dr[2], dr[3]);
 
             }
             CloseIfOpen();
@@ -425,7 +425,14 @@ IDF_fk int foreign key references factureDevis(idF),
             bool found = ExistTotal(IDF_fk);
             float SousTotal = Get_SousTotal(IDF_fk, prix_unitaire* Quantite);
             float total = ((float)(SousTotal + (SousTotal * 0.2)));
-            string sous_totalToWords = Get_SousTotalWords(total);
+            string sous_totalToWords;
+
+ 
+                sous_totalToWords = Get_SousTotalWords(total);
+           
+                  
+
+
 
             OpenCnx();
 
@@ -449,11 +456,12 @@ IDF_fk int foreign key references factureDevis(idF),
                 cmd.ExecuteNonQuery();
 
             }
-         
-         
 
-          
+
+
+        
             cmd = new SqlCommand("select  idT from totale where IDF_fk=@IDF_fk ", cn);
+            cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@IDF_fk", IDF_fk);
             if (cmd.ExecuteScalar() != null)
             { idtT = int.Parse(cmd.ExecuteScalar().ToString());   }
@@ -479,55 +487,112 @@ IDF_fk int foreign key references factureDevis(idF),
 
 
 
-
-        public void SupprimerDetail(int idT)
+        
+        public void SupprimerDetail(int iddd ,int idfk,float totalLign,float sousTotal )
         {
+
+            
+            float newsousTotal = sousTotal - totalLign;
+            float total = ((float)(newsousTotal + (newsousTotal * 0.2)));
+            string sous_totalToWords;
+            sous_totalToWords = Get_SousTotalWords(total);
+           
+
+
+
             OpenCnx();
+             
+                cmd = new SqlCommand("delete from detail where idd=@a", cn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@a", iddd);
+                cmd.ExecuteNonQuery();
 
-            cmd = new SqlCommand("delete from totale where idT=@a", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@a", idT);
-            cmd.ExecuteNonQuery();
+
+            
+                cmd = new SqlCommand("update  totale set  sous_total=@sous_total , sous_totalToWords=@sous_totalToWords where IDF_fk=@IDF_fk ", cn);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@sous_total", newsousTotal);
+                cmd.Parameters.AddWithValue("@sous_totalToWords", sous_totalToWords);
+                cmd.Parameters.AddWithValue("@IDF_fk", idfk);
+                cmd.ExecuteNonQuery();
 
 
-            cmd = new SqlCommand("delete from detail where idT=@a", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@a", idT);
-            cmd.ExecuteNonQuery();
 
-            CloseIfOpen();
+
+                CloseIfOpen();
         }
 
 
 
-    
-        public void ModifierDetail(int idT,float sous_total, float Quantite, float prix_unitaire, string description)
+       // 7777777777777777
+        public int GETIDBYREF(string reference )                    
         {
-             
+
+            int idF;
+            OpenCnx();
+            cmd = new SqlCommand("select idF from factureDevis where Reference =@Reference ", cn);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@Reference", reference);
+
+            dr = cmd.ExecuteReader();
+            
+
+
+            while (dr.Read())
+            {
+                idF = int.Parse(dr[0].ToString());
+                CloseIfOpen();
+                return idF;
+            }
+            CloseIfOpen();
+            return -1;
+
+
+
+
+        }
+        
+
+
+
+        public void ModifierDetail(int idd,int idfk, float sousTotal, float sousTotalGrid, float Quantite, float prix_unitaire, string description)
+        {
+            float TotalL = prix_unitaire * Quantite;
+            float newsousTotal = (sousTotal - sousTotalGrid);
+            newsousTotal += TotalL;
+
+
+            float total = ((float)(newsousTotal + (newsousTotal * 0.2)));
+            string sous_totalToWords;
+
+            
+                sous_totalToWords = Get_SousTotalWords(total);
+            
+
             OpenCnx();
 
-            cmd = new SqlCommand("update totale set  sous_total=@sous_total Where @idT=idT  ", cn);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@sous_total", sous_total);
-            cmd.Parameters.AddWithValue("@idT", idT);
-            cmd.ExecuteNonQuery();
- 
-             
-            cmd = new SqlCommand("update detail set  Quantite=@Quantite,prix_unitaire=@prix_unitaire,Total_ligne=@Total_ligne,description=@description  Where @idT=idT  ", cn);
+
+
+            cmd = new SqlCommand("update detail set  Quantite=@Quantite,prix_unitaire=@prix_unitaire ,description=@description  Where idd=@idd  ", cn);
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@Quantite", Quantite);
             cmd.Parameters.AddWithValue("@description", description);
             cmd.Parameters.AddWithValue("@prix_unitaire", prix_unitaire);
-            cmd.Parameters.AddWithValue("@idT", idT);
+            cmd.Parameters.AddWithValue("@idd", idd);
             cmd.ExecuteNonQuery();
 
 
 
+            cmd = new SqlCommand("update  totale set  sous_total=@sous_total , sous_totalToWords=@sous_totalToWords where IDF_fk=@IDF_fk ", cn);
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@sous_total", newsousTotal);
+            cmd.Parameters.AddWithValue("@sous_totalToWords", sous_totalToWords);
+            cmd.Parameters.AddWithValue("@IDF_fk", idfk);
+            cmd.ExecuteNonQuery();
+
+
 
             CloseIfOpen();
-
-
-
         }
     }
 }

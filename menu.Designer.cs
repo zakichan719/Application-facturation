@@ -45,7 +45,7 @@ namespace facturation
             this.minimaze.BackgroundImage = global::facturation.Properties.Resources.minimize__1_;
             this.minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.minimaze.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimaze.Location = new System.Drawing.Point(970, 37);
+            this.minimaze.Location = new System.Drawing.Point(970, 39);
             this.minimaze.Name = "minimaze";
             this.minimaze.Size = new System.Drawing.Size(29, 32);
             this.minimaze.TabIndex = 15;
@@ -58,7 +58,7 @@ namespace facturation
             this.close.BackgroundImage = global::facturation.Properties.Resources.close__3_;
             this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.close.Location = new System.Drawing.Point(1009, 37);
+            this.close.Location = new System.Drawing.Point(1009, 39);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(29, 32);
             this.close.TabIndex = 14;
@@ -69,10 +69,11 @@ namespace facturation
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Location = new System.Drawing.Point(0, -4);
+            this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1082, 35);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);

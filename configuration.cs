@@ -49,6 +49,9 @@ namespace facturation
                     b = (byte[])db.cmd.ExecuteScalar();
                     MemoryStream m = new MemoryStream(b);
                     Image Image = Image.FromStream(m);
+
+                     
+
                     picture.Image = Image;
                 }
                
@@ -77,8 +80,11 @@ namespace facturation
                     txt_telephone.Text = db.dr[8].ToString();
 
 
-
-                    txt_Ref.Text = "                   Chaine de reference";
+                    if (txt_Ref.Items.Count>0&& txt_Ref.Text!="Abriviation-(F ou D)Annee-000001" && txt_Ref.Text != "(F ou D)-Annee-000001")
+                    {
+                        txt_Ref.Text = txt_Ref.Items[0].ToString();
+                    }else
+                    txt_Ref.Text = "            Chaine de reference";
 
                     txt_Ref.Items.Clear();
                     txt_Ref.Items.Add(txt_abrv.Text + "-" + "F" + DateTime.Today.Year.ToString() + "-000001");
@@ -135,7 +141,7 @@ brand  varbinary(max)
         {
             
 
-            if (txt_Ref.Text == "" ||txt_Ref.Text == "                   Chaine de reference" ||
+            if (txt_Ref.Text == "" ||txt_Ref.Text == "            Chaine de reference" ||
                 txt_NomSociete.Text == "Nom de Societe" || txt_NomSociete.Text == "" ||
             
             txtRC.Text == "" || txtRC.Text == "RC" ||
@@ -148,7 +154,7 @@ brand  varbinary(max)
                 return;
             }
 
-               if (txt_Ref.Text != "                   Chaine de reference" && txt_Ref.Text != "Abriviation-(F ou D)Annee-000001" && txt_Ref.Text != "(F ou D)-Annee-000001"
+               if (txt_Ref.Text != "            Chaine de reference" && txt_Ref.Text != "Abriviation-(F ou D)Annee-000001" && txt_Ref.Text != "(F ou D)-Annee-000001"
                && txt_Ref.Text != txt_abrv.Text + "-" + "F" + DateTime.Today.Year.ToString() + "-000001" &&
                txt_Ref.Text != "F" + DateTime.Today.Year.ToString() + "-000001")
             {
@@ -185,10 +191,11 @@ brand  varbinary(max)
                 {
                     typeref = "refnormal";
                 }
-
+                MessageBox.Show(path);
                 cc.ajouterModifie(remplire,txt_NomSociete.Text, txt_abrv.Text, typeref, txtRC.Text, txtIF.Text, txtICE.Text, txtSiegeSocial.Text, txt_telephone.Text, path);
                 MessageBox.Show("les donneés est bien sauvgarder");
-                remplire = true;
+                remplire = false;
+                path = "";
             }
             else
             {
@@ -213,6 +220,7 @@ brand  varbinary(max)
             {
                 txt_Ref.Items.Clear();
                 txt_Ref.Items.Add(txt_abrv.Text + "-" + "F" + DateTime.Today.Year.ToString() + "-000001");
+                txt_Ref.Text= txt_abrv.Text + "-" + "F" + DateTime.Today.Year.ToString() + "-000001";
                 txt_Ref.Items.Add("F" + DateTime.Today.Year.ToString() + "-000001");
             }
 
@@ -258,14 +266,14 @@ brand  varbinary(max)
 
         private void txt_Ref_Leave(object sender, EventArgs e)
         {
-            p.leave(txt_Ref, "                   Chaine de reference", "black", "white");
+            p.leave(txt_Ref, "            Chaine de reference", "black", "white");
 
            
         }
 
         private void txt_Ref_Enter(object sender, EventArgs e)
         {
-            p.enter(txt_Ref, "                   Chaine de reference", "white", "black");
+            p.enter(txt_Ref, "            Chaine de reference", "white", "black");
         }
 
         private void txtRC_Enter(object sender, EventArgs e)
@@ -316,6 +324,9 @@ brand  varbinary(max)
             {
                 path = o.FileName.ToString();
                 picture.ImageLocation = path;
+                //Bitmap bmp = new Bitmap(picture.Image);
+                //bmp.MakeTransparent(bmp.GetPixel(0, 0));admin
+                remplire = false;
             }
         }
 
@@ -323,5 +334,26 @@ brand  varbinary(max)
         {
              this.Close(); Application.OpenForms[1].Show(); 
         }
+
+        private bool mouseDown = false;
+        private Point lastLocation;
+        private void panel1_MouseUp(object sender, MouseEventArgs e) { mouseDown = false; this.Cursor = Cursors.Default; }
+        private void panel1_MouseDown(object sender, MouseEventArgs e) { mouseDown = true; lastLocation = e.Location; this.Cursor = Cursors.Hand; }
+        private void panel1_MouseMove(object sender, MouseEventArgs e) { if (mouseDown) { int x = (this.Location.X - lastLocation.X) + e.X; int y = (this.Location.Y - lastLocation.Y) + e.Y; this.Location = new Point(x, y); } }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog o = new OpenFileDialog();
+            o.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            if (o.ShowDialog() == DialogResult.OK)
+            {
+                path = o.FileName.ToString();
+                picture.ImageLocation = path;
+                
+                remplire = false;
+            }
+        }
+
+      
     }
 }

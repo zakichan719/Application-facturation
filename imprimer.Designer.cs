@@ -30,9 +30,9 @@ namespace facturation
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSetF = new  DataSetF();
+            this.DataSetF = new DataSetF();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new  DataSetFTableAdapters.DataTable1TableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -59,9 +59,9 @@ namespace facturation
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.DataTable1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.DataTable1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "facturation.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 43);
             this.reportViewer1.Name = "reportViewer1";
@@ -97,6 +97,9 @@ namespace facturation
             this.panel1.Size = new System.Drawing.Size(827, 43);
             this.panel1.TabIndex = 68;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // minimaze
             // 

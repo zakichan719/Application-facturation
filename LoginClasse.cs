@@ -241,11 +241,34 @@ namespace facturation
             return false;
         }
 
+        public bool verifypassword(string password)
+        {
 
-       
+            cn.Open();
+            cmd = new SqlCommand("select * from login ", cn);
+            dr = cmd.ExecuteReader();
 
 
+            while (dr.Read())
+            {
+
+                if (dr[2].ToString() == password)
+                {
+                    CloseIfOpen();
+                    return true;
+                }
+
+
+            }
+
+            CloseIfOpen();
+            return false;
         }
+
+
+
+
+    }
 
 
 }

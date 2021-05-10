@@ -56,7 +56,7 @@ namespace facturation
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Location = new System.Drawing.Point(-1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 43);
+            this.panel1.Size = new System.Drawing.Size(1119, 50);
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -68,9 +68,9 @@ namespace facturation
             this.minimaze.BackgroundImage = global::facturation.Properties.Resources.minimize__1_;
             this.minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.minimaze.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimaze.Location = new System.Drawing.Point(946, 6);
+            this.minimaze.Location = new System.Drawing.Point(1026, 6);
             this.minimaze.Name = "minimaze";
-            this.minimaze.Size = new System.Drawing.Size(26, 29);
+            this.minimaze.Size = new System.Drawing.Size(35, 34);
             this.minimaze.TabIndex = 15;
             this.minimaze.TabStop = false;
             this.minimaze.Click += new System.EventHandler(this.minimaze_Click);
@@ -81,9 +81,9 @@ namespace facturation
             this.close.BackgroundImage = global::facturation.Properties.Resources.close__3_;
             this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.close.Location = new System.Drawing.Point(978, 6);
+            this.close.Location = new System.Drawing.Point(1069, 6);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(29, 29);
+            this.close.Size = new System.Drawing.Size(34, 34);
             this.close.TabIndex = 14;
             this.close.TabStop = false;
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -166,7 +166,7 @@ namespace facturation
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(146, 115);
+            this.groupBox1.Location = new System.Drawing.Point(189, 177);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(302, 396);
             this.groupBox1.TabIndex = 0;
@@ -190,11 +190,11 @@ namespace facturation
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("ZapfEllipt BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("ZapfEllipt BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(749, 557);
+            this.label2.Location = new System.Drawing.Point(682, 641);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(235, 15);
+            this.label2.Size = new System.Drawing.Size(269, 18);
             this.label2.TabIndex = 16;
             this.label2.Text = "Tous droits réservés | LEX CONNECT";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -205,22 +205,23 @@ namespace facturation
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(242, 521);
+            this.label3.Location = new System.Drawing.Point(284, 612);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 24);
-            this.label3.TabIndex = 18;
+            this.label3.TabIndex = 20;
             this.label3.Text = "Licence Key";
             this.label3.Visible = false;
             // 
             // txtActivation
             // 
-            this.txtActivation.BackColor = System.Drawing.Color.Black;
+            this.txtActivation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.txtActivation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtActivation.ForeColor = System.Drawing.Color.White;
-            this.txtActivation.Location = new System.Drawing.Point(146, 549);
+            this.txtActivation.Location = new System.Drawing.Point(188, 640);
             this.txtActivation.Name = "txtActivation";
             this.txtActivation.Size = new System.Drawing.Size(302, 22);
-            this.txtActivation.TabIndex = 17;
+            this.txtActivation.TabIndex = 19;
+            this.txtActivation.Text = "2310-0254-2541-0211";
             this.txtActivation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtActivation.Visible = false;
             // 
@@ -230,7 +231,7 @@ namespace facturation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1016, 606);
+            this.ClientSize = new System.Drawing.Size(1116, 714);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtActivation);

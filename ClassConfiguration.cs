@@ -78,7 +78,7 @@ namespace facturation
             }
             else
             {
-                cmd = new SqlCommand("update societe set  societeName=@societeName,AbrvName=@AbrvName,REF_syntax=@REF_syntax,RC=@RC,i_F=@i_F,ICE=@ICE,SiegeSocial=@SiegeSocial, Telephone=@Telephone,  (SELECT * FROM OPENROWSET(BULK N'" + path + "', SINGLE_BLOB) as T1)   where  idS=@idS  ", cn);
+                cmd = new SqlCommand("update societe set  societeName=@societeName,AbrvName=@AbrvName,REF_syntax=@REF_syntax,RC=@RC,i_F=@i_F,ICE=@ICE,SiegeSocial=@SiegeSocial, Telephone=@Telephone,  brand  =(SELECT * FROM OPENROWSET(BULK N'" + path + "', SINGLE_BLOB) as T1)   where  idS=@idS  ", cn);
             }
            
             cmd.Parameters.Clear();

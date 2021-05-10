@@ -75,7 +75,9 @@ namespace facturation
             this.txt_Destinateur = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.label9 = new System.Windows.Forms.Label();
             this.DataGridDetail = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.idd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDfk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prix_unitaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +130,7 @@ namespace facturation
             this.DataGridFD.EnableHeadersVisualStyles = false;
             this.DataGridFD.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.DataGridFD.HeaderForeColor = System.Drawing.Color.White;
-            this.DataGridFD.Location = new System.Drawing.Point(17, 96);
+            this.DataGridFD.Location = new System.Drawing.Point(17, 93);
             this.DataGridFD.Name = "DataGridFD";
             this.DataGridFD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGridFD.Size = new System.Drawing.Size(540, 307);
@@ -178,12 +180,13 @@ namespace facturation
             this.txtQuantite.LineIdleColor = System.Drawing.Color.Gray;
             this.txtQuantite.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtQuantite.LineThickness = 3;
-            this.txtQuantite.Location = new System.Drawing.Point(605, 477);
+            this.txtQuantite.Location = new System.Drawing.Point(605, 471);
             this.txtQuantite.Margin = new System.Windows.Forms.Padding(4);
             this.txtQuantite.Name = "txtQuantite";
             this.txtQuantite.Size = new System.Drawing.Size(219, 34);
             this.txtQuantite.TabIndex = 41;
             this.txtQuantite.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQuantite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantite_KeyPress);
             // 
             // btn_ajouterD
             // 
@@ -191,9 +194,9 @@ namespace facturation
             this.btn_ajouterD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ajouterD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ajouterD.ForeColor = System.Drawing.Color.White;
-            this.btn_ajouterD.Location = new System.Drawing.Point(877, 469);
+            this.btn_ajouterD.Location = new System.Drawing.Point(877, 449);
             this.btn_ajouterD.Name = "btn_ajouterD";
-            this.btn_ajouterD.Size = new System.Drawing.Size(217, 34);
+            this.btn_ajouterD.Size = new System.Drawing.Size(217, 41);
             this.btn_ajouterD.TabIndex = 49;
             this.btn_ajouterD.Text = "Ajouter";
             this.btn_ajouterD.UseVisualStyleBackColor = false;
@@ -212,17 +215,19 @@ namespace facturation
             this.txtPrixUnitaire.LineIdleColor = System.Drawing.Color.Gray;
             this.txtPrixUnitaire.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtPrixUnitaire.LineThickness = 3;
-            this.txtPrixUnitaire.Location = new System.Drawing.Point(607, 535);
+            this.txtPrixUnitaire.Location = new System.Drawing.Point(607, 529);
             this.txtPrixUnitaire.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrixUnitaire.Name = "txtPrixUnitaire";
             this.txtPrixUnitaire.Size = new System.Drawing.Size(219, 34);
             this.txtPrixUnitaire.TabIndex = 44;
             this.txtPrixUnitaire.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrixUnitaire.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrixUnitaire_KeyPress);
+            this.txtPrixUnitaire.Leave += new System.EventHandler(this.txtPrixUnitaire_Leave);
             // 
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtDescription.Location = new System.Drawing.Point(607, 604);
+            this.txtDescription.Location = new System.Drawing.Point(607, 598);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtDescription.Size = new System.Drawing.Size(219, 100);
@@ -235,12 +240,13 @@ namespace facturation
             this.btn_modifierD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_modifierD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_modifierD.ForeColor = System.Drawing.Color.White;
-            this.btn_modifierD.Location = new System.Drawing.Point(877, 510);
+            this.btn_modifierD.Location = new System.Drawing.Point(877, 502);
             this.btn_modifierD.Name = "btn_modifierD";
             this.btn_modifierD.Size = new System.Drawing.Size(217, 41);
             this.btn_modifierD.TabIndex = 54;
-            this.btn_modifierD.Text = "maudifier";
+            this.btn_modifierD.Text = "Maudifier";
             this.btn_modifierD.UseVisualStyleBackColor = false;
+            this.btn_modifierD.Click += new System.EventHandler(this.btn_modifierD_Click);
             // 
             // btn_SupprimerD
             // 
@@ -248,12 +254,13 @@ namespace facturation
             this.btn_SupprimerD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_SupprimerD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SupprimerD.ForeColor = System.Drawing.Color.White;
-            this.btn_SupprimerD.Location = new System.Drawing.Point(877, 557);
+            this.btn_SupprimerD.Location = new System.Drawing.Point(877, 554);
             this.btn_SupprimerD.Name = "btn_SupprimerD";
             this.btn_SupprimerD.Size = new System.Drawing.Size(217, 41);
             this.btn_SupprimerD.TabIndex = 55;
-            this.btn_SupprimerD.Text = "supprimer";
+            this.btn_SupprimerD.Text = "Supprimer";
             this.btn_SupprimerD.UseVisualStyleBackColor = false;
+            this.btn_SupprimerD.Click += new System.EventHandler(this.btn_SupprimerD_Click);
             // 
             // btnAjouterDF
             // 
@@ -265,7 +272,7 @@ namespace facturation
             this.btnAjouterDF.Name = "btnAjouterDF";
             this.btnAjouterDF.Size = new System.Drawing.Size(224, 41);
             this.btnAjouterDF.TabIndex = 56;
-            this.btnAjouterDF.Text = "ajouter";
+            this.btnAjouterDF.Text = "Ajouter";
             this.btnAjouterDF.UseVisualStyleBackColor = false;
             this.btnAjouterDF.Click += new System.EventHandler(this.btnAjouterDF_Click);
             // 
@@ -281,6 +288,7 @@ namespace facturation
             this.btnSupprimerDF.TabIndex = 57;
             this.btnSupprimerDF.Text = "supprimer";
             this.btnSupprimerDF.UseVisualStyleBackColor = false;
+            this.btnSupprimerDF.Click += new System.EventHandler(this.btnSupprimerDF_Click);
             // 
             // btnModifierDF
             // 
@@ -292,8 +300,9 @@ namespace facturation
             this.btnModifierDF.Name = "btnModifierDF";
             this.btnModifierDF.Size = new System.Drawing.Size(224, 41);
             this.btnModifierDF.TabIndex = 58;
-            this.btnModifierDF.Text = "maudifier";
+            this.btnModifierDF.Text = "Maudifier";
             this.btnModifierDF.UseVisualStyleBackColor = false;
+            this.btnModifierDF.Click += new System.EventHandler(this.btnModifierDF_Click);
             // 
             // label4
             // 
@@ -369,6 +378,9 @@ namespace facturation
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1124, 43);
             this.panel1.TabIndex = 67;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // pictureBox1
             // 
@@ -496,7 +508,7 @@ namespace facturation
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.label10.ForeColor = System.Drawing.Color.Aqua;
+            this.label10.ForeColor = System.Drawing.Color.MintCream;
             this.label10.Location = new System.Drawing.Point(897, 108);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(170, 17);
@@ -529,10 +541,11 @@ namespace facturation
             this.btnRechercherDF.TabIndex = 91;
             this.btnRechercherDF.Text = "rechercher";
             this.btnRechercherDF.UseVisualStyleBackColor = false;
+            this.btnRechercherDF.Click += new System.EventHandler(this.btnRechercherDF_Click);
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Cyan;
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Location = new System.Drawing.Point(875, 296);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(223, 3);
@@ -540,7 +553,7 @@ namespace facturation
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Cyan;
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(875, 89);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(223, 3);
@@ -548,7 +561,7 @@ namespace facturation
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.Cyan;
+            this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Location = new System.Drawing.Point(874, 91);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(3, 205);
@@ -557,7 +570,7 @@ namespace facturation
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Cyan;
+            this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(1095, 92);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(3, 205);
@@ -565,11 +578,13 @@ namespace facturation
             // 
             // txt_reff
             // 
-            this.txt_reff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_reff.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txt_reff.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.txt_reff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_reff.FormattingEnabled = true;
-            this.txt_reff.Location = new System.Drawing.Point(883, 140);
+            this.txt_reff.Location = new System.Drawing.Point(884, 140);
             this.txt_reff.Name = "txt_reff";
-            this.txt_reff.Size = new System.Drawing.Size(204, 33);
+            this.txt_reff.Size = new System.Drawing.Size(204, 26);
             this.txt_reff.TabIndex = 98;
             // 
             // txt_Destinateur
@@ -622,7 +637,9 @@ namespace facturation
             this.DataGridDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DataGridDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idd,
             this.idT,
+            this.IDfk,
             this.Quantité,
             this.Description,
             this.prix_unitaire,
@@ -631,16 +648,27 @@ namespace facturation
             this.DataGridDetail.EnableHeadersVisualStyles = false;
             this.DataGridDetail.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.DataGridDetail.HeaderForeColor = System.Drawing.Color.White;
-            this.DataGridDetail.Location = new System.Drawing.Point(17, 439);
+            this.DataGridDetail.Location = new System.Drawing.Point(17, 437);
             this.DataGridDetail.Name = "DataGridDetail";
             this.DataGridDetail.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGridDetail.Size = new System.Drawing.Size(540, 316);
             this.DataGridDetail.TabIndex = 106;
+            this.DataGridDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridDetail_CellClick);
+            // 
+            // idd
+            // 
+            this.idd.HeaderText = "idd";
+            this.idd.Name = "idd";
             // 
             // idT
             // 
             this.idT.HeaderText = "idT";
             this.idT.Name = "idT";
+            // 
+            // IDfk
+            // 
+            this.IDfk.HeaderText = "IDfk";
+            this.IDfk.Name = "IDfk";
             // 
             // Quantité
             // 
@@ -726,7 +754,7 @@ namespace facturation
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(681, 456);
+            this.label13.Location = new System.Drawing.Point(681, 450);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 17);
             this.label13.TabIndex = 113;
@@ -738,7 +766,7 @@ namespace facturation
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(677, 580);
+            this.label14.Location = new System.Drawing.Point(677, 573);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 17);
             this.label14.TabIndex = 112;
@@ -750,7 +778,7 @@ namespace facturation
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(675, 514);
+            this.label15.Location = new System.Drawing.Point(675, 508);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(81, 17);
             this.label15.TabIndex = 111;
@@ -797,7 +825,7 @@ namespace facturation
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___3;
-            this.ClientSize = new System.Drawing.Size(1116, 797);
+            this.ClientSize = new System.Drawing.Size(1116, 785);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
@@ -883,7 +911,6 @@ namespace facturation
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox txt_reff;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txt_Destinateur;
         private System.Windows.Forms.Label label9;
         private Bunifu.Framework.UI.BunifuCustomDataGrid DataGridDetail;
@@ -904,13 +931,16 @@ namespace facturation
         public System.Windows.Forms.Label lblTotal;
         public System.Windows.Forms.Label lblTVA;
         public System.Windows.Forms.Label lblSousTotal;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel5;
+        public System.Windows.Forms.Label lblsous_totalToWords;
+        public System.Windows.Forms.ComboBox txt_reff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idd;
         private System.Windows.Forms.DataGridViewTextBoxColumn idT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDfk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn prix_unitaire;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_ligne;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel5;
-        public System.Windows.Forms.Label lblsous_totalToWords;
     }
 }

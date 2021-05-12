@@ -54,7 +54,9 @@ namespace facturation
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.BackColor = System.Drawing.Color.MediumBlue;
+            this.panel1.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___1;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.minimaze);
             this.panel1.Controls.Add(this.close);
@@ -118,7 +120,7 @@ namespace facturation
             this.txtRC.LineIdleColor = System.Drawing.Color.Gray;
             this.txtRC.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtRC.LineThickness = 3;
-            this.txtRC.Location = new System.Drawing.Point(549, 396);
+            this.txtRC.Location = new System.Drawing.Point(448, 341);
             this.txtRC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRC.Name = "txtRC";
             this.txtRC.Size = new System.Drawing.Size(281, 41);
@@ -141,7 +143,7 @@ namespace facturation
             this.txtIF.LineIdleColor = System.Drawing.Color.Gray;
             this.txtIF.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtIF.LineThickness = 3;
-            this.txtIF.Location = new System.Drawing.Point(549, 449);
+            this.txtIF.Location = new System.Drawing.Point(447, 404);
             this.txtIF.Margin = new System.Windows.Forms.Padding(4);
             this.txtIF.Name = "txtIF";
             this.txtIF.Size = new System.Drawing.Size(281, 41);
@@ -164,7 +166,7 @@ namespace facturation
             this.txtICE.LineIdleColor = System.Drawing.Color.Gray;
             this.txtICE.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtICE.LineThickness = 3;
-            this.txtICE.Location = new System.Drawing.Point(550, 504);
+            this.txtICE.Location = new System.Drawing.Point(448, 467);
             this.txtICE.Margin = new System.Windows.Forms.Padding(4);
             this.txtICE.Name = "txtICE";
             this.txtICE.Size = new System.Drawing.Size(280, 41);
@@ -187,7 +189,7 @@ namespace facturation
             this.txt_NomSociete.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_NomSociete.LineMouseHoverColor = System.Drawing.Color.White;
             this.txt_NomSociete.LineThickness = 3;
-            this.txt_NomSociete.Location = new System.Drawing.Point(550, 222);
+            this.txt_NomSociete.Location = new System.Drawing.Point(92, 215);
             this.txt_NomSociete.Margin = new System.Windows.Forms.Padding(4);
             this.txt_NomSociete.Name = "txt_NomSociete";
             this.txt_NomSociete.Size = new System.Drawing.Size(280, 41);
@@ -210,7 +212,7 @@ namespace facturation
             this.txtSiegeSocial.LineIdleColor = System.Drawing.Color.Gray;
             this.txtSiegeSocial.LineMouseHoverColor = System.Drawing.Color.White;
             this.txtSiegeSocial.LineThickness = 3;
-            this.txtSiegeSocial.Location = new System.Drawing.Point(550, 281);
+            this.txtSiegeSocial.Location = new System.Drawing.Point(448, 215);
             this.txtSiegeSocial.Margin = new System.Windows.Forms.Padding(4);
             this.txtSiegeSocial.Name = "txtSiegeSocial";
             this.txtSiegeSocial.Size = new System.Drawing.Size(280, 41);
@@ -222,14 +224,14 @@ namespace facturation
             // 
             // btnAjouter
             // 
-            this.btnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnAjouter.BackColor = System.Drawing.Color.Transparent;
             this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.White;
-            this.btnAjouter.Location = new System.Drawing.Point(550, 575);
+            this.btnAjouter.Location = new System.Drawing.Point(448, 555);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(280, 61);
+            this.btnAjouter.Size = new System.Drawing.Size(280, 50);
             this.btnAjouter.TabIndex = 24;
             this.btnAjouter.Text = "Ajouter  |  Maudifier";
             this.btnAjouter.UseVisualStyleBackColor = false;
@@ -238,13 +240,13 @@ namespace facturation
             // txt_Ref
             // 
             this.txt_Ref.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txt_Ref.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Ref.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Ref.FormattingEnabled = true;
             this.txt_Ref.Items.AddRange(new object[] {
             "(F ou D)-Annee-000001"});
-            this.txt_Ref.Location = new System.Drawing.Point(176, 278);
+            this.txt_Ref.Location = new System.Drawing.Point(91, 335);
             this.txt_Ref.Name = "txt_Ref";
-            this.txt_Ref.Size = new System.Drawing.Size(281, 29);
+            this.txt_Ref.Size = new System.Drawing.Size(281, 28);
             this.txt_Ref.TabIndex = 93;
             this.txt_Ref.Text = "            Chaine de reference";
             this.txt_Ref.Enter += new System.EventHandler(this.txt_Ref_Enter);
@@ -263,7 +265,7 @@ namespace facturation
             this.txt_abrv.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_abrv.LineMouseHoverColor = System.Drawing.Color.White;
             this.txt_abrv.LineThickness = 3;
-            this.txt_abrv.Location = new System.Drawing.Point(176, 224);
+            this.txt_abrv.Location = new System.Drawing.Point(92, 275);
             this.txt_abrv.Margin = new System.Windows.Forms.Padding(4);
             this.txt_abrv.Name = "txt_abrv";
             this.txt_abrv.Size = new System.Drawing.Size(201, 41);
@@ -279,7 +281,7 @@ namespace facturation
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(409, 224);
+            this.button2.Location = new System.Drawing.Point(325, 275);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(48, 41);
             this.button2.TabIndex = 95;
@@ -300,7 +302,7 @@ namespace facturation
             this.txt_telephone.LineIdleColor = System.Drawing.Color.Gray;
             this.txt_telephone.LineMouseHoverColor = System.Drawing.Color.White;
             this.txt_telephone.LineThickness = 3;
-            this.txt_telephone.Location = new System.Drawing.Point(549, 340);
+            this.txt_telephone.Location = new System.Drawing.Point(447, 278);
             this.txt_telephone.Margin = new System.Windows.Forms.Padding(4);
             this.txt_telephone.Name = "txt_telephone";
             this.txt_telephone.Size = new System.Drawing.Size(281, 41);
@@ -316,9 +318,9 @@ namespace facturation
             this.picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picture.Location = new System.Drawing.Point(176, 379);
+            this.picture.Location = new System.Drawing.Point(92, 383);
             this.picture.Name = "picture";
-            this.picture.Size = new System.Drawing.Size(281, 131);
+            this.picture.Size = new System.Drawing.Size(281, 125);
             this.picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picture.TabIndex = 99;
             this.picture.TabStop = false;
@@ -326,15 +328,16 @@ namespace facturation
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(176, 575);
+            this.button1.Location = new System.Drawing.Point(93, 555);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(281, 61);
+            this.button1.Size = new System.Drawing.Size(280, 50);
             this.button1.TabIndex = 100;
-            this.button1.Text = "ajouter logo";
+            this.button1.Text = "Ajouter Logo";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -344,7 +347,7 @@ namespace facturation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1116, 788);
+            this.ClientSize = new System.Drawing.Size(1119, 788);
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picture);

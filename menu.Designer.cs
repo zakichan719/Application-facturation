@@ -45,7 +45,7 @@ namespace facturation
             this.minimaze.BackgroundImage = global::facturation.Properties.Resources.minimize__1_;
             this.minimaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.minimaze.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimaze.Location = new System.Drawing.Point(970, 39);
+            this.minimaze.Location = new System.Drawing.Point(1005, 48);
             this.minimaze.Name = "minimaze";
             this.minimaze.Size = new System.Drawing.Size(29, 32);
             this.minimaze.TabIndex = 15;
@@ -58,7 +58,7 @@ namespace facturation
             this.close.BackgroundImage = global::facturation.Properties.Resources.close__3_;
             this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.close.Location = new System.Drawing.Point(1009, 39);
+            this.close.Location = new System.Drawing.Point(1044, 48);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(29, 32);
             this.close.TabIndex = 14;
@@ -71,7 +71,7 @@ namespace facturation
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Location = new System.Drawing.Point(0, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 35);
+            this.panel1.Size = new System.Drawing.Size(1117, 35);
             this.panel1.TabIndex = 14;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -86,7 +86,7 @@ namespace facturation
             this.btnFacture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnFacture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFacture.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFacture.Location = new System.Drawing.Point(142, 164);
+            this.btnFacture.Location = new System.Drawing.Point(158, 189);
             this.btnFacture.Name = "btnFacture";
             this.btnFacture.Size = new System.Drawing.Size(216, 194);
             this.btnFacture.TabIndex = 15;
@@ -102,7 +102,7 @@ namespace facturation
             this.BtnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnConfig.Location = new System.Drawing.Point(81, 416);
+            this.BtnConfig.Location = new System.Drawing.Point(96, 460);
             this.BtnConfig.Name = "BtnConfig";
             this.BtnConfig.Size = new System.Drawing.Size(156, 144);
             this.BtnConfig.TabIndex = 16;
@@ -118,7 +118,7 @@ namespace facturation
             this.BtnBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnBackup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBackup.Location = new System.Drawing.Point(273, 416);
+            this.BtnBackup.Location = new System.Drawing.Point(288, 460);
             this.BtnBackup.Name = "BtnBackup";
             this.BtnBackup.Size = new System.Drawing.Size(156, 144);
             this.BtnBackup.TabIndex = 16;
@@ -134,7 +134,7 @@ namespace facturation
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1052, 694);
+            this.ClientSize = new System.Drawing.Size(1116, 769);
             this.ControlBox = false;
             this.Controls.Add(this.close);
             this.Controls.Add(this.minimaze);

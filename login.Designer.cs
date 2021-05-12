@@ -39,8 +39,8 @@ namespace facturation
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtActivation = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minimaze)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
@@ -166,7 +166,7 @@ namespace facturation
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(189, 177);
+            this.groupBox1.Location = new System.Drawing.Point(163, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(302, 396);
             this.groupBox1.TabIndex = 0;
@@ -192,12 +192,24 @@ namespace facturation
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("ZapfEllipt BT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(682, 641);
+            this.label2.Location = new System.Drawing.Point(679, 640);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(269, 18);
             this.label2.TabIndex = 16;
             this.label2.Text = "Tous droits réservés | LEX CONNECT";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtActivation
+            // 
+            this.txtActivation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.txtActivation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.txtActivation.ForeColor = System.Drawing.Color.White;
+            this.txtActivation.Location = new System.Drawing.Point(162, 637);
+            this.txtActivation.Name = "txtActivation";
+            this.txtActivation.Size = new System.Drawing.Size(302, 22);
+            this.txtActivation.TabIndex = 21;
+            this.txtActivation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtActivation.Visible = false;
             // 
             // label3
             // 
@@ -205,25 +217,12 @@ namespace facturation
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(284, 612);
+            this.label3.Location = new System.Drawing.Point(258, 609);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 24);
-            this.label3.TabIndex = 20;
+            this.label3.TabIndex = 22;
             this.label3.Text = "Licence Key";
             this.label3.Visible = false;
-            // 
-            // txtActivation
-            // 
-            this.txtActivation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.txtActivation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtActivation.ForeColor = System.Drawing.Color.White;
-            this.txtActivation.Location = new System.Drawing.Point(188, 640);
-            this.txtActivation.Name = "txtActivation";
-            this.txtActivation.Size = new System.Drawing.Size(302, 22);
-            this.txtActivation.TabIndex = 19;
-            this.txtActivation.Text = "2310-0254-2541-0211";
-            this.txtActivation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtActivation.Visible = false;
             // 
             // login
             // 
@@ -231,7 +230,7 @@ namespace facturation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___3;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1116, 714);
+            this.ClientSize = new System.Drawing.Size(1116, 709);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtActivation);
@@ -266,8 +265,8 @@ namespace facturation
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtActivation;
+        private System.Windows.Forms.Label label3;
     }
 }
 

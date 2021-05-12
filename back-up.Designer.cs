@@ -207,9 +207,9 @@ namespace facturation
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(344, 310);
+            this.button2.Location = new System.Drawing.Point(344, 311);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 28);
+            this.button2.Size = new System.Drawing.Size(62, 24);
             this.button2.TabIndex = 29;
             this.button2.Text = "chemain";
             this.button2.UseVisualStyleBackColor = false;
@@ -217,27 +217,25 @@ namespace facturation
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.BackgroundImage = global::facturation.Properties.Resources.backup;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = global::facturation.Properties.Resources.business_application_download_downloaddatabase_thedatabase_2320;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(284, 438);
+            this.panel3.Location = new System.Drawing.Point(278, 428);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(122, 102);
+            this.panel3.Size = new System.Drawing.Size(110, 123);
             this.panel3.TabIndex = 31;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.BackgroundImage = global::facturation.Properties.Resources.arrow;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = global::facturation.Properties.Resources.Abstractobjectdatabase_thearrow_Extracto_objet_1477;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(121, 438);
+            this.panel2.Location = new System.Drawing.Point(139, 428);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 102);
+            this.panel2.Size = new System.Drawing.Size(116, 129);
             this.panel2.TabIndex = 30;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -288,7 +286,7 @@ namespace facturation
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(121, 359);
+            this.progressBar1.Location = new System.Drawing.Point(121, 358);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(285, 21);
             this.progressBar1.TabIndex = 37;
@@ -309,10 +307,10 @@ namespace facturation
             // 
             this.hidepanel.BackgroundImage = global::facturation.Properties.Resources._812;
             this.hidepanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.hidepanel.Location = new System.Drawing.Point(92, 163);
+            this.hidepanel.Location = new System.Drawing.Point(76, 163);
             this.hidepanel.Name = "hidepanel";
-            this.hidepanel.Size = new System.Drawing.Size(952, 580);
-            this.hidepanel.TabIndex = 39;
+            this.hidepanel.Size = new System.Drawing.Size(967, 580);
+            this.hidepanel.TabIndex = 40;
             // 
             // back_up
             // 
@@ -322,13 +320,13 @@ namespace facturation
             this.BackgroundImage = global::facturation.Properties.Resources.Sans_titre___3;
             this.ClientSize = new System.Drawing.Size(1116, 788);
             this.Controls.Add(this.hidepanel);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.lb_progress);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txt_foder_backup);
             this.Controls.Add(this.bunifuMaterialTextbox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnLogin);

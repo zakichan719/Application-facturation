@@ -139,8 +139,14 @@
   <data name="backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Abstractobjectdatabase_thearrow_Extracto_objet_1477" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abstractobjectdatabase_thearrow_Extracto_objet_1477.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back-arrow_icon-icons.com_54057" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back-arrow_icon-icons.com_54057.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +172,7 @@
   <data name="Sans titre - 21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sans titre - 21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="business_application_download_downloaddatabase_thedatabase_2320" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_application_download_downloaddatabase_thedatabase_2320.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

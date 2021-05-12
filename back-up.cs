@@ -81,12 +81,21 @@ namespace facturation
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            try { OpenFileDialog op = new OpenFileDialog(); op.Filter = "Backup File(*.bak) | *.bak"; op.Title = "select backup File"; if (op.ShowDialog() == DialogResult.OK) { progressBar1.Value = 70; lb_progress.Text = "70 %"; db.OpenCnx(); string req = "alter database [" + db.cn.Database + "] set offline with rollback immediate RESTORE DATABASE [" + db.cn.Database + "] FROM DISK = N'" + op.FileName + "'WITH FILE = 1, NOUNLOAD, STATS = 5 alter database [" + db.cn.Database + "] set online with rollback immediate "; SqlCommand cmd = new SqlCommand(req, db.cn); cmd.ExecuteNonQuery(); db.cn.Close(); progressBar1.Value = 100; lb_progress.Text = "les informations de la base de donne est bien Restaurer ...."; } } catch (Exception ex) { MessageBox.Show(ex.Message); } finally { db.cn.Close(); }
+            try { OpenFileDialog op = new OpenFileDialog(); op.Filter = "Backup File(*.bak) | *.bak"; op.Title = "select backup File"; if (op.ShowDialog() == DialogResult.OK) {
+                    progressBar1.Visible = true; lb_progress.Visible = true;
+                    progressBar1.Value = 70; lb_progress.Text = "70 %"; db.OpenCnx(); string req = "alter database [" + db.cn.Database + "] set offline with rollback immediate RESTORE DATABASE [" + db.cn.Database + "] FROM DISK = N'" + op.FileName + "'WITH FILE = 1, NOUNLOAD, STATS = 5 alter database [" + db.cn.Database + "] set online with rollback immediate "; SqlCommand cmd = new SqlCommand(req, db.cn); cmd.ExecuteNonQuery(); db.cn.Close(); progressBar1.Value = 100; lb_progress.Text = "les informations de la base de donne est bien Restaurer ...."; } } catch (Exception ex) { MessageBox.Show(ex.Message); } finally { db.cn.Close();
+                    progressBar1.Visible = false; lb_progress.Visible = false;
+            }
         }
 
         private void panel2_Click(object sender, EventArgs e)
         {
-            try { if (txt_foder_backup.Text == "") { MessageBox.Show("choisi le Chemin de deplacement de cette Sauvegarde"); button1.BackColor = Color.Gray; return; } progressBar1.Value = 70; lb_progress.Text = "70 %"; db.OpenCnx(); string backupName = "\\db_OIP_STOCK" + "_" + DateTime.Now.ToString("ddMMyyyy_HH.mm.ss") + ".bak"; string req = "BACKUP DATABASE [" + db.cn.Database + "] TO DISK = N'" + txt_foder_backup.Text + backupName + "'"; db.cmd = new SqlCommand(req, db.cn); db.cmd.ExecuteNonQuery(); db.CloseIfOpen(); lb_progress.Text = "Sauvegarde est bien fait ...."; progressBar1.Value = 100; } catch (Exception ex) { MessageBox.Show(ex.Message); db.CloseIfOpen(); }
+            try { if (txt_foder_backup.Text == "") { MessageBox.Show("choisi le Chemin de deplacement de cette Sauvegarde"); button2.BackColor = Color.Gray; return; }
+                progressBar1.Visible = true; lb_progress.Visible = true;
+                progressBar1.Value = 70; lb_progress.Text = "70 %"; db.OpenCnx(); string backupName = "\\BACKUP" + "_" + DateTime.Now.ToString("ddMMyyyy_HH.mm.ss") + ".bak"; string req = "BACKUP DATABASE [" + db.cn.Database + "] TO DISK = N'" + txt_foder_backup.Text + backupName + "'"; db.cmd = new SqlCommand(req, db.cn); db.cmd.ExecuteNonQuery(); db.CloseIfOpen(); lb_progress.Text = "Sauvegarde est bien fait ...."; progressBar1.Value = 100; } catch (Exception ex) { MessageBox.Show(ex.Message); db.CloseIfOpen();
+                progressBar1.Visible = false; lb_progress.Visible = false;
+
+            }
 
 
            

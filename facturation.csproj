@@ -154,12 +154,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TEST-01.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TEST-01.Designer.cs">
-      <DependentUpon>TEST-01.cs</DependentUpon>
-    </Compile>
     <Compile Include="Translation.cs" />
     <EmbeddedResource Include="back-up.resx">
       <DependentUpon>back-up.cs</DependentUpon>
@@ -190,9 +184,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report2.rdlc" />
-    <EmbeddedResource Include="TEST-01.resx">
-      <DependentUpon>TEST-01.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="DataSetF.xsc">
       <DependentUpon>DataSetF.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -291,6 +282,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>DatabaseF.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\business_application_download_downloaddatabase_thedatabase_2320.png" />
+    <None Include="Resources\Abstractobjectdatabase_thearrow_Extracto_objet_1477.png" />
     <None Include="Resources\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

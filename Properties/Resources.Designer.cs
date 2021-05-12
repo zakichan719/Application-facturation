@@ -133,6 +133,16 @@ namespace facturation.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Abstractobjectdatabase_thearrow_Extracto_objet_1477 {
+            get {
+                object obj = ResourceManager.GetObject("Abstractobjectdatabase_thearrow_Extracto_objet_1477", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow {
             get {
                 object obj = ResourceManager.GetObject("arrow", resourceCulture);
@@ -166,6 +176,16 @@ namespace facturation.Properties {
         internal static System.Drawing.Bitmap backup {
             get {
                 object obj = ResourceManager.GetObject("backup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap business_application_download_downloaddatabase_thedatabase_2320 {
+            get {
+                object obj = ResourceManager.GetObject("business_application_download_downloaddatabase_thedatabase_2320", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
